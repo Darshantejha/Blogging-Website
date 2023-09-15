@@ -1,11 +1,15 @@
-
 <%- include("partials/header"); -%>
-<div>
+
 <h1>Home</h1>
-<p><%=para%></p>
-<%postsarr.forEach(function(post){%>
-  <h1><%=post.title%></h1>
-  <p><%=(post.content).slice(0,100)%>.....<a href="/posts/<%=post._id%>">Read More</a></p>
-<%});%>
-</div>
+<p><%= startingContent %> </p>
+
+<% posts.forEach(post => { %>
+    <h1><%= post.title %> </h1>
+    <p>
+        <%= post.content.substring(0,100)+"..." %> 
+        <a href="/posts/<%= post._id %>" class="stretched-link">Read More</a> 
+    </p>
+<% }); %>
+
+
 <%- include("partials/footer"); -%>
